@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "commitlint": "commitlint -e",
+    "pre-commit": "next lint --fix "
   },
   "dependencies": {
     "@commitlint/cli": "^18.4.3",
