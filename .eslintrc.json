@@ -1,4 +1,10 @@
 {
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
@@ -8,7 +14,6 @@
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended"
   ],
-  "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "eslint-plugin-simple-import-sort", "import"],
   "rules": {
     "prettier/prettier": ["warn", { "usePrettierrc": true }],
@@ -30,9 +35,11 @@
     ]
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "next": {
       "rootDir": "./src"
     }
-  },
-  "env": {}
+  }
 }
