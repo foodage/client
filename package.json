@@ -7,24 +7,38 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prepare": "husky install",
     "commitlint": "commitlint -e",
-    "pre-commit": "next lint --fix "
+    "pre-commit": "next lint --fix && prettier --check \"src/**/*\" --write "
+
   },
   "dependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@svgr/webpack": "^8.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "babel-eslint": "^10.1.0",
     "classnames": "^2.5.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "next": "14.0.4",
+    "prettier": "^3.1.1",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.69.7"
+    "sass": "^1.69.7",
+    "sass-loader": "^13.3.3",
+    "style-loader": "^3.3.3"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
     "typescript": "^5"
   }
