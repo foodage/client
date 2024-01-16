@@ -16,7 +16,7 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/styles')],
-    prependData: `@import "./common/_mixins.scss"; @import "./common/_variables.scss"; @import "./common/_fonts.scss";`,
+    prependData: `@import "./base/_fonts.scss"; @import "./base/_mixins.scss"; @import "./constants/_breakpoint.scss"; @import "./constants/_colors.scss"; @import "./constants/_radius.scss"; @import "./constants/_typography.scss"; `,
   },
   trailingSlash: false,
   swcMinify: true,
