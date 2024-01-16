@@ -1,7 +1,7 @@
-@import 'common/reset';
-@import 'common/fonts';
+@import 'base/_fonts';
+@import 'base/_reset';
+@import 'base/_normalize';
 
-*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -36,7 +36,6 @@ body {
 
 .container {
   width: 100%;
-  max-width: $mobile-size;
   margin: 0 auto;
   padding: 0 16px;
 }
