@@ -1,3 +1,37 @@
+/* ------- text style -------- */
+@mixin text-style($style, $font-weight: false, $color: false) {
+  @if ($style == 'h1') {
+    @include text-style-h1;
+  }
+  @if ($style == 'h2') {
+    @include text-style-h2;
+  }
+  @if ($style == 'h3') {
+    @include text-style-h3;
+  }
+  @if ($style == 'title') {
+    @include text-style-title;
+  }
+  @if ($style == 'body1') {
+    @include text-style-body1;
+  }
+  @if ($style == 'body2') {
+    @include text-style-body2;
+  }
+  @if ($style == 'caption2') {
+    @include text-style-caption2;
+  }
+
+  @if ($font-weight) {
+    font-weight: $font-weight;
+  }
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+/* -------- flex ---------- */
 $flex-map: (
   start: flex-start,
   end: flex-end,
@@ -7,25 +41,98 @@ $flex-map: (
   center: center,
 );
 
-@function _get-flex-value($key) {
+@function flex-value($key) {
   @return map-get($flex-map, $key);
 }
 
-@mixin flexbox($jc: center, $al: center) {
+@mixin flexbox($jc: center, $ai: center) {
   display: flex;
-  align-items: _get-flex-value($al);
-  justify-content: _get-flex-value($jc);
+  align-items: flex-value($ai);
+  justify-content: flex-value($jc);
 }
 
-@mixin inline-flexbox($jc: center, $al: center) {
+@mixin inline-flexbox($jc: center, $ai: center) {
   display: inline-flex;
-  align-items: _get-flex-value($al);
-  justify-content: _get-flex-value($jc);
+  align-items: flex-value($ai);
+  justify-content: flex-value($jc);
 }
 
-@mixin column-flexbox($jc: center, $al: center) {
+@mixin column-flexbox($jc: center, $ai: center) {
   display: flex;
   flex-direction: column;
-  align-items: _get-flex-value($al);
-  justify-content: _get-flex-value($jc);
+  align-items: flex-value($ai);
+  justify-content: flex-value($jc);
+}
+
+/* ------- responsive ---------- */
+
+@mixin responsive($screen) {
+  @if ($screen == 'T') {
+    @media screen and (min-width: $md-breakpoint) {
+      @content;
+    }
+  }
+  @if ($screen == 'D') {
+    @media screen and (min-width: $lg-breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin mobile-only() {
+  @media screen and (max-width: $md-breakpoint - 1px) {
+    @content;
+  }
+}
+
+/* ---------- etc ----------- */
+
+@mixin hidden {
+  visibility: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  white-space: nowrap;
+}
+
+/* -------- text styles (개별) -------- */
+@mixin text-style-h1() {
+  font-size: $font-size-26;
+  line-height: $line-height-34;
+}
+@mixin text-style-h2() {
+  font-size: $font-size-18;
+  line-height: $line-height-24;
+}
+@mixin text-style-h3() {
+  font-size: $font-size-16;
+  line-height: $line-height-22;
+}
+@mixin text-style-title() {
+  font-size: $font-size-16;
+  line-height: $line-height-22;
+}
+@mixin text-style-body1() {
+  font-size: $font-size-14;
+  line-height: $line-height-20;
+}
+@mixin text-style-body2() {
+  font-size: $font-size-14;
+  line-height: $line-height-20;
+}
+@mixin text-style-caption1() {
+  font-size: $font-size-12;
+  line-height: $line-height-16;
+}
+@mixin text-style-caption2() {
+  font-size: $font-size-10;
+  line-height: $line-height-14;
+}
+@mixin text-style-caption3() {
+  font-size: $font-size-10;
+  line-height: $line-height-14;
 }
