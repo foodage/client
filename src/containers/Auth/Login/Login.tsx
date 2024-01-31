@@ -1,42 +1,53 @@
 'use client';
 
 import classNames from 'classnames/bind';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, signOut } from 'next-auth/react';
+
+import { Button } from '@/components';
 
 import styles from './Login.module.scss';
 
 const cx = classNames.bind(styles);
 
 export const Login = () => {
-  const router = useRouter();
-
-  const handleLogin = () => {
-    console.log('login clicked!');
+  const handleLogin = (type: 'kakao' | 'naver' | 'google') => {
+    signIn(type);
   };
 
   return (
     <main className={cx('container')}>
       <section className={cx('login-container')}>
-        <h2 className={cx('visually-hidden')}>login</h2>
+        <h2 className={cx('hidden')}>소셜 로그인</h2>
+
         <div className={cx('image')}></div>
-        <div className={cx('btns-wrap')}>
-          <ul className={cx('icons-wrap')}>
-            <li className={cx('icon')} onClick={handleLogin}>
-              <Image alt="google" height={40} src={'/assets/icon-google.png'} width={40} priority />
-            </li>
-            <li className={cx('icon')} id="naverIdLogin">
-              <Image alt="naver" height={40} src={'/assets/icon-naver.png'} width={40} priority />
-            </li>
-            <li className={cx('icon')} onClick={() => signIn('kakao')}>
-              <Image alt="kakao" height={40} src={'/assets/icon-kakao.png'} width={40} priority />
-            </li>
-          </ul>
-          <button className={cx('inquiry')} type="button" onClick={() => router.push('/inpuiry')}>
-            문의하기
-          </button>
+
+        <div>
+          <h1>FOODAGE</h1>
+          <h2>매일 기록하는 음식 다이어리</h2>
         </div>
+
+        <div className={cx('btn-wrap')}>
+          <Button style={{ backgroundColor: '#fbe84c' }} onClick={() => handleLogin('kakao')}>
+            <img alt="카카오로 시작하기" src="/assets/icon-kakao.svg" />
+            <span>카카오로 시작하기</span>
+          </Button>
+
+          <Button onClick={() => handleLogin('kakao')}>
+            <img alt="네이버로 시작하기" src="/assets/icon-naver.svg" />
+            <span>네이버로 시작하기</span>
+          </Button>
+
+          <Button onClick={() => handleLogin('kakao')}>
+            <img alt="구글로 시작하기" src="/assets/icon-google.svg" />
+            <span>구글로 시작하기</span>
+          </Button>
+        </div>
+        <button className={cx('inquiry')} type="button">
+          문의하기
+        </button>
+        <button className={cx('inquiry')} type="button" onClick={() => signOut()}>
+          로그아웃
+        </button>
       </section>
     </main>
   );

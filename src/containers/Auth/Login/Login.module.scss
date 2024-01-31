@@ -1,66 +1,31 @@
 .login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-  padding: 50px 0;
-
-  @media screen and (max-width: $md-breakpoint) {
-    gap: 40px;
-  }
-}
-
-.image {
-  width: 500px;
-  height: 500px;
-  border-radius: 10px;
-  background-color: $gray-300;
-}
-
-.btns-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-  @media screen and (max-width: $md-breakpoint) {
-    gap: 20px;
-  }
-}
-
-.icons-wrap {
-  display: flex;
-  gap: 30px;
+  @include column-flexbox(center, stretch);
+  width: 100%;
 }
 
 .icon {
   display: block;
-  width: 50px;
-  height: 50px;
-  transition: all 0.3s ease-out;
   cursor: pointer;
+}
 
-  @media screen and (max-width: $md-breakpoint) {
-    width: 46px;
-    height: 46px;
-  }
-
-  &:hover {
-    transform: scale(1.09);
-  }
+.btn-wrap {
+  @include column-flexbox(center, center);
+  gap: 12px;
+  margin: 32px 0 16px;
 }
 
 .inquiry {
+  @include text-style('body2', $regular, $gray-70);
   transition: color 0.3s ease-out;
-  color: $gray-300;
-  font-size: 14px;
   text-decoration: underline;
+  margin-bottom: 10px;
   cursor: pointer;
 
-  @media screen and (max-width: $md-breakpoint) {
-    font-size: 12px;
-  }
-
   &:hover {
-    color: $gray-600;
+    color: $gray-60;
   }
+}
+
+.hidden {
+  @include hidden;
 }
