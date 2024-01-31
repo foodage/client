@@ -50,8 +50,8 @@ export const authOptions: NextAuthOptions = {
       },
     }),
     Kakao({
-      clientId: process.env.NEXT_PUBLIC_KAKAO_CLIENT_KEY!,
-      clientSecret: process.env.NEXT_PUBLIC_KAKAO_CLIENT_SECRET!,
+      clientId: process.env.KAKAO_CLIENT_ID ?? '',
+      clientSecret: process.env.KAKAO_CLIENT_SECRET ?? '',
     }),
   ],
   callbacks: {
