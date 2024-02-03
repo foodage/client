@@ -1,0 +1,11 @@
+.button {
+  @include flexbox(center, center);
+  @include text-style('body2', $regular, $gray-90);
+
+  gap: 11px;
+  width: 100%;
+  border-radius: 16px;
+  background: $gray-20;
+  padding: 18px;
+  cursor: pointer;
+}
