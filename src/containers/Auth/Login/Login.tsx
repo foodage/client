@@ -32,12 +32,12 @@ export const Login = () => {
             <span>카카오로 시작하기</span>
           </Button>
 
-          <Button onClick={() => handleLogin('kakao')}>
+          <Button onClick={() => handleLogin('naver')}>
             <img alt="네이버로 시작하기" src="/assets/icon-naver.svg" />
             <span>네이버로 시작하기</span>
           </Button>
 
-          <Button onClick={() => handleLogin('kakao')}>
+          <Button onClick={() => handleLogin('google')}>
             <img alt="구글로 시작하기" src="/assets/icon-google.svg" />
             <span>구글로 시작하기</span>
           </Button>
