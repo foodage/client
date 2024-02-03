@@ -2,14 +2,17 @@
 
 import classNames from 'classnames/bind';
 import { signIn, signOut } from 'next-auth/react';
+import { useEffect } from 'react';
 
 import { Button } from '@/components';
+import useLogin from '@/hooks/useLogin';
 
 import styles from './Login.module.scss';
-
 const cx = classNames.bind(styles);
 
 export const Login = () => {
+  const { kakaoLogin, naverLogin } = useLogin();
+
   const kakaoAuth = () => {
     window.Kakao.Auth.authorize({
       redirectUri: process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI,
@@ -33,12 +36,12 @@ export const Login = () => {
         </div>
 
         <div className={cx('btn-wrap')}>
-          <Button style={{ backgroundColor: '#fbe84c' }} onClick={kakaoAuth}>
+          <Button style={{ backgroundColor: '#fbe84c' }} onClick={kakaoLogin}>
             <img alt="카카오로 시작하기" src="/assets/icon-kakao.svg" />
             <span>카카오로 시작하기</span>
           </Button>
-
-          <Button onClick={() => handleLogin('naver')}>
+          <button id="naverIdLogin">NAVER LOGIN TEST</button>
+          <Button>
             <img alt="네이버로 시작하기" src="/assets/icon-naver.svg" />
             <span>네이버로 시작하기</span>
           </Button>
