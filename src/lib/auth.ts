@@ -1,6 +1,5 @@
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import Kakao from 'next-auth/providers/kakao';
 
 /**
  * api/auth/[...next auth]/route.ts 에서 사용
@@ -48,10 +47,6 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
       },
-    }),
-    Kakao({
-      clientId: process.env.KAKAO_CLIENT_ID ?? '',
-      clientSecret: process.env.KAKAO_CLIENT_SECRET ?? '',
     }),
   ],
   callbacks: {
