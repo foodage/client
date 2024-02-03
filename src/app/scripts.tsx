@@ -9,20 +9,20 @@ export default function AuthScript() {
   const naverInit = () => {
     const naverAuth = new window.naver.LoginWithNaverId({
       clientId: process.env.NEXT_PUBLIC_NAVER_CLIENT_ID,
-      callbackUrl: process.env.NEXT_PUBILC_NAVER_REDIRECT_URI,
+      callbackUrl: process.env.NEXT_PUBLIC_NAVER_REDIRECT_URI,
       isPopup: false,
       loginButton: {
         color: 'green', // 색상
         type: 1, // 버튼 크기
-        height: '60', // 버튼 높이
-      }, // 로그인 버튼 설정
+        height: '30', // 버튼 높이
+      },
+      //callbackHandle: true,
     });
 
     naverAuth.init();
-    console.log('Naver auth init : ', naverAuth ? true : false);
+    console.log('Naver auth init : ', naverAuth ? true : false, naverAuth);
   };
 
-  console.log('SCRIPT LOAD');
   return (
     <>
       <Script

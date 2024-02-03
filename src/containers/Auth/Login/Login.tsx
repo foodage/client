@@ -2,7 +2,7 @@
 
 import classNames from 'classnames/bind';
 import { signIn, signOut } from 'next-auth/react';
-import { useEffect } from 'react';
+import { useRef } from 'react';
 
 import { Button } from '@/components';
 import useLogin from '@/hooks/useLogin';
@@ -13,11 +13,7 @@ const cx = classNames.bind(styles);
 export const Login = () => {
   const { kakaoLogin, naverLogin } = useLogin();
 
-  const kakaoAuth = () => {
-    window.Kakao.Auth.authorize({
-      redirectUri: process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI,
-    });
-  };
+  const naverRef = useRef<HTMLButtonElement>(null);
 
   const handleLogin = (type: 'kakao' | 'naver' | 'google') => {
     signIn(type);
@@ -27,21 +23,18 @@ export const Login = () => {
     <main className={cx('container')}>
       <section className={cx('login-container')}>
         <h2 className={cx('hidden')}>소셜 로그인</h2>
-
         <div className={cx('image')}></div>
-
         <div>
           <h1>FOODAGE</h1>
           <h2>매일 기록하는 음식 다이어리</h2>
         </div>
-
         <div className={cx('btn-wrap')}>
           <Button style={{ backgroundColor: '#fbe84c' }} onClick={kakaoLogin}>
             <img alt="카카오로 시작하기" src="/assets/icon-kakao.svg" />
             <span>카카오로 시작하기</span>
           </Button>
-          <button id="naverIdLogin">NAVER LOGIN TEST</button>
-          <Button>
+          <div className={cx('hidden')} id="naverIdLogin"></div>
+          <Button ref={naverRef} onClick={() => naverLogin(naverRef)}>
             <img alt="네이버로 시작하기" src="/assets/icon-naver.svg" />
             <span>네이버로 시작하기</span>
           </Button>
