@@ -10,6 +10,12 @@ import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 
 export const Login = () => {
+  const kakaoAuth = () => {
+    window.Kakao.Auth.authorize({
+      redirectUri: process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI,
+    });
+  };
+
   const handleLogin = (type: 'kakao' | 'naver' | 'google') => {
     signIn(type);
   };
@@ -27,7 +33,7 @@ export const Login = () => {
         </div>
 
         <div className={cx('btn-wrap')}>
-          <Button style={{ backgroundColor: '#fbe84c' }} onClick={() => handleLogin('kakao')}>
+          <Button style={{ backgroundColor: '#fbe84c' }} onClick={kakaoAuth}>
             <img alt="카카오로 시작하기" src="/assets/icon-kakao.svg" />
             <span>카카오로 시작하기</span>
           </Button>

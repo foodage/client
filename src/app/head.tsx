@@ -2,8 +2,9 @@
 
 import Script from 'next/script';
 export default function Head() {
+  console.log(process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID);
   const kakaoInit = () => {
-    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_KEY);
+    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID);
     console.log('Kakao auth init : ', window.Kakao.isInitialized());
   };
 
