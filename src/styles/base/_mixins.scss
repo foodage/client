@@ -18,6 +18,9 @@
   @if ($style == 'body2') {
     @include text-style-body2;
   }
+  @if ($style == 'caption1') {
+    @include text-style-caption1;
+  }
   @if ($style == 'caption2') {
     @include text-style-caption2;
   }
@@ -45,19 +48,19 @@ $flex-map: (
   @return map-get($flex-map, $key);
 }
 
-@mixin flexbox($jc: center, $ai: center) {
+@mixin flexbox($jc: start, $ai: start) {
   display: flex;
   align-items: flex-value($ai);
   justify-content: flex-value($jc);
 }
 
-@mixin inline-flexbox($jc: center, $ai: center) {
+@mixin inline-flexbox($jc: start, $ai: start) {
   display: inline-flex;
   align-items: flex-value($ai);
   justify-content: flex-value($jc);
 }
 
-@mixin column-flexbox($jc: center, $ai: center) {
+@mixin column-flexbox($jc: start, $ai: start) {
   display: flex;
   flex-direction: column;
   align-items: flex-value($ai);
@@ -68,12 +71,12 @@ $flex-map: (
 
 @mixin responsive($screen) {
   @if ($screen == 'T') {
-    @media screen and (min-width: $md-breakpoint) {
+    @media screen and (max-width: $md-breakpoint) {
       @content;
     }
   }
   @if ($screen == 'D') {
-    @media screen and (min-width: $lg-breakpoint) {
+    @media screen and (max-width: $lg-breakpoint) {
       @content;
     }
   }
