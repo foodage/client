@@ -1,0 +1,105 @@
+.profile-wrap {
+  max-width: 393px;
+  height: 100vh;
+  background-color: $gray-20;
+}
+
+.header-section {
+  @include column-flexbox(center, center);
+  background-color: $gray-10;
+  padding: 78px 16px 54px;
+  margin: 0 -16px;
+
+  .title {
+    margin-bottom: 43px;
+    text-align: center;
+  }
+
+  .profile-image {
+    @include flexbox(center, center);
+
+    background-color: $gray-20;
+    border-radius: 40px;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    margin-bottom: 22px;
+
+    .profile {
+      transform: scale(2.25) translateY(6px);
+    }
+  }
+}
+
+.nickname-wrap {
+  @include column-flexbox(center, center);
+
+  .input-wrap {
+    @include flexbox;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 2px solid $gray-40;
+
+    .input {
+      width: 100%;
+      border: none;
+      margin: 0 auto;
+      padding: 6px 0;
+      outline: none;
+    }
+
+    .input-delete-btn {
+      @include flexbox(center, center);
+
+      padding: 4.8px;
+      background-color: $gray-40;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+  }
+
+  .desc-wrap {
+    @include column-flexbox(center, center);
+    @include text-style('caption1', $regular, $gray-70);
+
+    .desc {
+      white-space: pre-line;
+      text-align: center;
+    }
+  }
+}
+
+.bottom-section {
+  background-color: $gray-20;
+  min-height: max-content;
+  padding: 28px 30px 0;
+  margin: 0 -16px;
+
+  .title {
+    @include text-style('body', $bold, $gray-70);
+    margin-bottom: 11px;
+  }
+}
+
+.characters {
+  @include flexbox(center, start);
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 71px;
+}
+
+.image-wrap {
+  @include flexbox(center, center);
+
+  min-width: 74px;
+  min-height: 74px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  cursor: pointer;
+
+  .image {
+    display: block;
+    padding: 10px;
+  }
+}
