@@ -49,9 +49,8 @@
       outline: none;
     }
 
-    .input-delete-btn {
+    .icon-wrap {
       @include flexbox(center, center);
-
       padding: 4.8px;
       background-color: $gray-40;
       border-radius: 9999px;
