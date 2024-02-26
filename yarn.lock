@@ -994,14 +994,7 @@
   resolved "https://registry.npmjs.org/@babel/regjsgen/-/regjsgen-0.8.0.tgz"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.20.13":
-  version "7.23.8"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.8.tgz#8ee6fe1ac47add7122902f257b8ddf55c898f650"
-  integrity sha512-Y7KbAP984rn1VGMbGqKmBLio9V7y5Je9GvU4rQPCPinCyNfUcToxIXl06d59URp/F3LwinvODxab5N/G6qggkw==
-  dependencies:
-    regenerator-runtime "^0.14.0"
-
-"@babel/runtime@^7.23.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.20.13", "@babel/runtime@^7.23.2", "@babel/runtime@^7.8.4":
   version "7.23.7"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.23.7.tgz"
   integrity sha512-w06OXVOFso7LcbzMiDGt+3X7Rh7Ho8MmgPoWU3rarH+8upf+wSU/grlGbWzQyr3DkdN6ZeuMFjpdwW0Q+HxobA==
@@ -1364,7 +1357,7 @@
 
 "@panva/hkdf@^1.0.2":
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@panva/hkdf/-/hkdf-1.1.1.tgz#ab9cd8755d1976e72fc77a00f7655a64efe6cd5d"
+  resolved "https://registry.npmjs.org/@panva/hkdf/-/hkdf-1.1.1.tgz"
   integrity sha512-dhPeilub1NuIG0X5Kvhh9lH4iW3ZsHlnzwgwbOlgwQ2wG1IqFzsgHqmKPk3WzsdWAeaxKJxgM0+W433RmN45GA==
 
 "@pkgr/core@^0.1.0":
@@ -2098,7 +2091,7 @@ convert-source-map@^2.0.0:
 
 cookie@^0.5.0:
   version "0.5.0"
-  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
+  resolved "https://registry.npmjs.org/cookie/-/cookie-0.5.0.tgz"
   integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
 
 core-js-compat@^3.31.0, core-js-compat@^3.33.1:
@@ -3329,7 +3322,7 @@ jiti@^1.19.1:
 
 jose@^4.11.4, jose@^4.15.4:
   version "4.15.4"
-  resolved "https://registry.yarnpkg.com/jose/-/jose-4.15.4.tgz#02a9a763803e3872cf55f29ecef0dfdcc218cc03"
+  resolved "https://registry.npmjs.org/jose/-/jose-4.15.4.tgz"
   integrity sha512-W+oqK4H+r5sITxfxpSU+MMdr/YSWGvgZMQDIsNoBDGGy4i7GBPTtvFKibQzW06n3U3TqHjhvBJsirShsEJ6eeQ==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
@@ -3678,9 +3671,9 @@ neo-async@^2.6.2:
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
 next-auth@^4.24.5:
-  version "4.24.5"
-  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.24.5.tgz#1fd1bfc0603c61fd2ba6fd81b976af690edbf07e"
-  integrity sha512-3RafV3XbfIKk6rF6GlLE4/KxjTcuMCifqrmD+98ejFq73SRoj2rmzoca8u764977lH/Q7jo6Xu6yM+Re1Mz/Og==
+  version "4.24.6"
+  resolved "https://registry.npmjs.org/next-auth/-/next-auth-4.24.6.tgz"
+  integrity sha512-djQt3ZEaWEIxcsuh3HTW2uuzLfXMRjHH+ugAsichlQSbH4iA5MRcgMA2HvTNvsDTDLh44tyU72+/gWsxgTbAKg==
   dependencies:
     "@babel/runtime" "^7.20.13"
     "@panva/hkdf" "^1.0.2"
@@ -3770,7 +3763,7 @@ nth-check@^2.0.1:
 
 oauth@^0.9.15:
   version "0.9.15"
-  resolved "https://registry.yarnpkg.com/oauth/-/oauth-0.9.15.tgz#bd1fefaf686c96b75475aed5196412ff60cfb9c1"
+  resolved "https://registry.npmjs.org/oauth/-/oauth-0.9.15.tgz"
   integrity sha512-a5ERWK1kh38ExDEfoO6qUHJb32rd7aYmPHuyCu3Fta/cnICvYmgd2uhuKXvPD+PXB+gCEYYEaQdIRAjCOwAKNA==
 
 object-assign@^4.1.1:
@@ -3780,7 +3773,7 @@ object-assign@^4.1.1:
 
 object-hash@^2.2.0:
   version "2.2.0"
-  resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-2.2.0.tgz#5ad518581eefc443bd763472b8ff2e9c2c0d54a5"
+  resolved "https://registry.npmjs.org/object-hash/-/object-hash-2.2.0.tgz"
   integrity sha512-gScRMn0bS5fH+IuwyIFgnh9zBdo4DV+6GhygmWM9HyNJSgS0hScp1f5vjtm7oIIOiT9trXrShAkLFSc2IqKNgw==
 
 object-inspect@^1.13.1, object-inspect@^1.9.0:
@@ -3850,7 +3843,7 @@ object.values@^1.1.6, object.values@^1.1.7:
 
 oidc-token-hash@^5.0.3:
   version "5.0.3"
-  resolved "https://registry.yarnpkg.com/oidc-token-hash/-/oidc-token-hash-5.0.3.tgz#9a229f0a1ce9d4fc89bcaee5478c97a889e7b7b6"
+  resolved "https://registry.npmjs.org/oidc-token-hash/-/oidc-token-hash-5.0.3.tgz"
   integrity sha512-IF4PcGgzAr6XXSff26Sk/+P4KZFJVuHAJZj3wgO3vX2bMdNVp/QXTP3P7CEm9V1IdG8lDLY3HhiqpsE/nOwpPw==
 
 once@^1.3.0:
@@ -3869,7 +3862,7 @@ onetime@^5.1.2:
 
 openid-client@^5.4.0:
   version "5.6.4"
-  resolved "https://registry.yarnpkg.com/openid-client/-/openid-client-5.6.4.tgz#b2c25e6d5338ba3ce00e04341bb286798a196177"
+  resolved "https://registry.npmjs.org/openid-client/-/openid-client-5.6.4.tgz"
   integrity sha512-T1h3B10BRPKfcObdBklX639tVz+xh34O7GjofqrqiAQdm7eHsQ00ih18x6wuJ/E6FxdtS2u3FmUGPDeEcMwzNA==
   dependencies:
     jose "^4.15.4"
@@ -3985,15 +3978,15 @@ postcss@8.4.31:
 
 preact-render-to-string@^5.1.19:
   version "5.2.6"
-  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.2.6.tgz#0ff0c86cd118d30affb825193f18e92bd59d0604"
+  resolved "https://registry.npmjs.org/preact-render-to-string/-/preact-render-to-string-5.2.6.tgz"
   integrity sha512-JyhErpYOvBV1hEPwIxc/fHWXPfnEGdRKxc8gFdAZ7XV4tlzyzG847XAyEZqoDnynP88akM4eaHcSOzNcLWFguw==
   dependencies:
     pretty-format "^3.8.0"
 
 preact@^10.6.3:
-  version "10.19.3"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.19.3.tgz#7a7107ed2598a60676c943709ea3efb8aaafa899"
-  integrity sha512-nHHTeFVBTHRGxJXKkKu5hT8C/YWBkPso4/Gad6xuj5dbptt9iF9NZr9pHbPhBrnT2klheu7mHTxTZ/LjwJiEiQ==
+  version "10.19.6"
+  resolved "https://registry.npmjs.org/preact/-/preact-10.19.6.tgz"
+  integrity sha512-gympg+T2Z1fG1unB8NH29yHJwnEaCH37Z32diPDku316OTnRPeMbiRV9kTrfZpocXjdfnWuFUl/Mj4BHaf6gnw==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -4014,7 +4007,7 @@ prettier@^3.1.1:
 
 pretty-format@^3.8.0:
   version "3.8.0"
-  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
+  resolved "https://registry.npmjs.org/pretty-format/-/pretty-format-3.8.0.tgz"
   integrity sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==
 
 prop-types@^15.8.1:
@@ -4751,7 +4744,7 @@ util-deprecate@^1.0.1:
 
 uuid@^8.3.2:
   version "8.3.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  resolved "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 validate-npm-package-license@^3.0.1:
