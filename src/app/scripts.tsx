@@ -16,7 +16,7 @@ export default function AuthScript() {
         type: 1, // 버튼 크기
         height: '30', // 버튼 높이
       },
-      //callbackHandle: true,
+      response_type: 'code',
     });
 
     naverAuth.init();
@@ -25,11 +25,12 @@ export default function AuthScript() {
 
   return (
     <>
-      <Script
+      {/* <Script
         src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"
         defer
         onLoad={naverInit}
-      ></Script>
+      ></Script> */}
+      <Script src="/naver-login-sdk.js" defer onLoad={naverInit}></Script>
       <Script
         src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
         onLoad={kakaoInit}
