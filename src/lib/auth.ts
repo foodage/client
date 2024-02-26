@@ -60,9 +60,9 @@ export const authOptions: NextAuthOptions = {
       return Promise.resolve(session);
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: 'foodage',
   jwt: {
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: 'foodage',
   },
   session: {
     strategy: 'jwt',
