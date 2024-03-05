@@ -2,7 +2,6 @@
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
-import Pizon from '/public/assets/characters/비둘기.svg';
 import IconX from '/public/assets/icon-x.svg';
 import { Button } from '@/components';
 
@@ -16,7 +15,10 @@ const info =
 
 export const Profile = () => {
   const [nickname, setNickname] = useState<string>('');
-  const [image, setImage] = useState<string>(characters[0].image);
+  const [character, setCharacter] = useState({
+    image: characters[2].image2,
+    character: characters[2].value,
+  });
 
   const nicknameRef = useRef<HTMLInputElement>(null);
 
@@ -29,18 +31,29 @@ export const Profile = () => {
     nicknameRef.current?.focus();
   };
 
-  const handleImage = (e: React.MouseEvent<HTMLDivElement>) => {
-    const imageUrl = e.currentTarget.querySelector('img')?.getAttribute('src');
-    setImage(imageUrl!);
+  const handleImage = (e: React.MouseEvent<HTMLImageElement>) => {
+    const id = e.currentTarget.id;
+    const img = characters.find((v) => v.value === id)?.image2;
+    setCharacter({
+      image: img!,
+      character: id,
+    });
+  };
+
+  const handleSubmit = () => {
+    const formData = {
+      nickname,
+      character: character.character,
+    };
+    console.log(formData);
   };
 
   return (
     <main className={cx('profile-wrap', 'container')}>
       <div className={cx('header-section')}>
         <h1 className={cx('title')}>프로필 만들기</h1>
-        {/* 프로필 이미지 설정  */}
         <div className={cx('profile-image')}>
-          <img alt="프로필 이미지" className={cx('profile')} src={image} />
+          <img alt="프로필 이미지" className={cx('profile')} src={character.image} />
         </div>
 
         <div className={cx('nickname-wrap')}>
@@ -75,7 +88,11 @@ export const Profile = () => {
             />
           ))}
         </div>
-        <Button styleType={'primary'}>가입하기</Button>
+        <div className={cx('btn-wrap')}>
+          <Button styleType={'primary'} onClick={handleSubmit}>
+            가입하기
+          </Button>
+        </div>
       </section>
     </main>
   );
@@ -88,11 +105,11 @@ const ProfileImage = ({
 }: {
   url: string;
   name: string;
-  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick: (e: React.MouseEvent<HTMLImageElement>) => void;
 }) => {
   return (
-    <div className={cx('image-wrap')} onClick={(e) => onClick(e)}>
-      <img alt={name} className={cx('image')} src={url} />
+    <div className={cx('image-wrap')}>
+      <img alt={name} className={cx('image')} id={name} src={url} onClick={onClick} />
     </div>
   );
 };
