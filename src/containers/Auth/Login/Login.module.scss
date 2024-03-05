@@ -15,7 +15,7 @@
 }
 
 .inquiry {
-  @include text-style('body2', $regular, $gray-70);
+  @include text-style('body2', $gray-70);
   transition: color 0.3s ease-out;
   text-decoration: underline;
   margin-bottom: 10px;

@@ -1,6 +1,6 @@
 .button {
   @include flexbox(center, center);
-  @include text-style('body2', $regular, $gray-90);
+  @include text-style('body2', $gray-90);
 
   gap: 11px;
   width: 100%;
@@ -11,6 +11,6 @@
 }
 
 .primary {
-  @include text-style('h3', $bold, $gray-10);
+  @include text-style('h3', $gray-10);
   background-color: $primary-medium;
 }
