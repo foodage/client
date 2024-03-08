@@ -3,6 +3,7 @@ declare global {
     Kakao: any;
     naver: any;
   }
+  const google: any;
 }
 
 export {};

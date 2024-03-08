@@ -1,5 +1,5 @@
 'use client';
-
+import axios from 'axios';
 import classNames from 'classnames/bind';
 import { signIn, signOut } from 'next-auth/react';
 import { useRef } from 'react';
@@ -11,7 +11,7 @@ import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 
 export const Login = () => {
-  const { kakaoLogin, naverLogin } = useLogin();
+  const { kakaoLogin, naverLogin, googleLogin } = useLogin();
 
   const naverRef = useRef<HTMLButtonElement>(null);
 
@@ -39,7 +39,7 @@ export const Login = () => {
             <span>네이버로 시작하기</span>
           </Button>
 
-          <Button onClick={() => handleLogin('google')}>
+          <Button onClick={googleLogin}>
             <img alt="구글로 시작하기" src="/assets/icon-google.svg" />
             <span>구글로 시작하기</span>
           </Button>

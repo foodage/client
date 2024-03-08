@@ -9,7 +9,17 @@ const useLogin = () => {
     const loginButton = naverRef.current!.previousSibling!.firstChild as HTMLAnchorElement;
     loginButton.click();
   };
-  return { kakaoLogin, naverLogin };
+
+  const googleLogin = () => {
+    const client = google.accounts.oauth2.initCodeClient({
+      client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      ux_mode: 'redirect',
+      scope: 'email profile',
+      redirect_uri: process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI,
+    });
+    client.requestCode();
+  };
+  return { kakaoLogin, naverLogin, googleLogin };
 };
 
 export default useLogin;
