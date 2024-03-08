@@ -3,7 +3,7 @@ import Script from 'next/script';
 export default function AuthScript() {
   const kakaoInit = () => {
     window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID);
-    console.log('Kakao auth init : ', window.Kakao.isInitialized());
+    console.log('Kakao auth init : ', window.Kakao.isInitialized(), window.Kakao);
   };
 
   const naverInit = () => {
@@ -23,6 +23,18 @@ export default function AuthScript() {
     console.log('Naver auth init : ', naverAuth ? true : false, naverAuth);
   };
 
+  const googleInit = () => {
+    const handleCallback = (response: unknown) => {
+      console.log(response);
+    };
+    google.accounts.id.initialize({
+      client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      callback: handleCallback,
+    });
+
+    console.log('Google Auth init : ', google ? true : false, google);
+  };
+
   return (
     <>
       {/* <Script
@@ -30,11 +42,18 @@ export default function AuthScript() {
         defer
         onLoad={naverInit}
       ></Script> */}
-      <Script src="/naver-login-sdk.js" defer onLoad={naverInit}></Script>
+      <Script src="/naver-login-sdk.js" async defer onLoad={naverInit}></Script>
       <Script
         src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
         onLoad={kakaoInit}
       ></Script>
+      {/* <Script
+        src="https://apis.google.com/js/api.js"
+        async
+        defer
+        onLoad={() => gapi.load('client', googleInit)}
+      ></Script> */}
+      <Script src="https://accounts.google.com/gsi/client" async defer onLoad={googleInit}></Script>
     </>
   );
 }
