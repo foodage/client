@@ -1,5 +1,5 @@
 /* ------- text style -------- */
-@mixin text-style($style, $font-weight: false, $color: false) {
+@mixin text-style($style, $color: $black) {
   @if ($style == 'h1') {
     @include text-style-h1;
   }
@@ -18,12 +18,11 @@
   @if ($style == 'body2') {
     @include text-style-body2;
   }
+  @if ($style == 'caption1') {
+    @include text-style-caption1;
+  }
   @if ($style == 'caption2') {
     @include text-style-caption2;
-  }
-
-  @if ($font-weight) {
-    font-weight: $font-weight;
   }
 
   @if ($color) {
@@ -45,19 +44,19 @@ $flex-map: (
   @return map-get($flex-map, $key);
 }
 
-@mixin flexbox($jc: center, $ai: center) {
+@mixin flexbox($jc: start, $ai: start) {
   display: flex;
   align-items: flex-value($ai);
   justify-content: flex-value($jc);
 }
 
-@mixin inline-flexbox($jc: center, $ai: center) {
+@mixin inline-flexbox($jc: start, $ai: start) {
   display: inline-flex;
   align-items: flex-value($ai);
   justify-content: flex-value($jc);
 }
 
-@mixin column-flexbox($jc: center, $ai: center) {
+@mixin column-flexbox($jc: start, $ai: start) {
   display: flex;
   flex-direction: column;
   align-items: flex-value($ai);
@@ -68,14 +67,17 @@ $flex-map: (
 
 @mixin responsive($screen) {
   @if ($screen == 'T') {
-    @media screen and (min-width: $md-breakpoint) {
+    @media screen and (max-width: $md-breakpoint) {
       @content;
     }
   }
   @if ($screen == 'D') {
-    @media screen and (min-width: $lg-breakpoint) {
+    @media screen and (max-width: $lg-breakpoint) {
       @content;
     }
+  }
+  @media screen and (max-width: $screen) {
+    @content;
   }
 }
 
@@ -99,40 +101,66 @@ $flex-map: (
   white-space: nowrap;
 }
 
+@mixin word-spacing {
+  word-wrap: break-word;
+  word-break: keep-all;
+  white-space: break-spaces;
+}
+
+@mixin text-shorten {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+
 /* -------- text styles (개별) -------- */
 @mixin text-style-h1() {
   font-size: $font-size-26;
   line-height: $line-height-34;
+  font-weight: $bold;
 }
 @mixin text-style-h2() {
   font-size: $font-size-18;
   line-height: $line-height-24;
+  font-weight: $bold;
 }
 @mixin text-style-h3() {
   font-size: $font-size-16;
   line-height: $line-height-22;
+  font-weight: $bold;
 }
 @mixin text-style-title() {
   font-size: $font-size-16;
   line-height: $line-height-22;
+  font-weight: $regular;
 }
 @mixin text-style-body1() {
   font-size: $font-size-14;
   line-height: $line-height-20;
+  font-weight: $bold;
 }
 @mixin text-style-body2() {
   font-size: $font-size-14;
   line-height: $line-height-20;
+  font-weight: $regular;
 }
 @mixin text-style-caption1() {
   font-size: $font-size-12;
   line-height: $line-height-16;
+  font-weight: $regular;
 }
 @mixin text-style-caption2() {
   font-size: $font-size-10;
   line-height: $line-height-14;
+  font-weight: $medium;
 }
 @mixin text-style-caption3() {
   font-size: $font-size-10;
   line-height: $line-height-14;
+  font-weight: $regular;
 }
