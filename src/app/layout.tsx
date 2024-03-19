@@ -6,6 +6,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { Providers } from '@/utils';
 
+import AuthScript from './scripts';
 export const metadata: Metadata = {
   title: '푸디지 | Meal Diary',
   description: 'Meal Diary',
@@ -16,6 +17,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="ko">
+      <head>
+        <AuthScript />
+      </head>
       <Providers session={session}>
         <body>{children}</body>
       </Providers>
