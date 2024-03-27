@@ -1,68 +1,55 @@
-import type { NextAuthOptions } from 'next-auth';
+import type { NextAuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-/**
- * api/auth/[...next auth]/route.ts 에서 사용
- *
- * [Note]
- * - kakao login 🏂
- * - naver login
- * - google login
- *
- * 임의 작성
- */
+import { authService } from '@/service';
+import { SignupCredentials } from '@/types';
 
 export const authOptions: NextAuthOptions = {
   pages: {
-    signIn: '/signin',
+    signIn: '/signup',
   },
   providers: [
     CredentialsProvider({
-      name: 'Sign in',
+      name: 'Credentials',
       credentials: {},
 
-      async authorize(credentials) {
-        const { username, password } = credentials as {
-          username: string;
-          password: string;
-        };
-
-        if (!username || !password) {
-          return null;
+      async authorize(credentials: SignupCredentials) {
+        if (!credentials) {
+          return;
         }
-
         try {
-          const res = {
-            id: 'id',
-            token: 'token',
-          };
+          const { data } = await authService.signup(credentials);
+
+          if (!data) {
+            return;
+          }
 
           return {
-            id: res.id,
-            token: res.token,
+            memberInfoDto: data.memberInfoDto,
+            token: data.jwt.accessToken,
+            refreshToken: data.jwt.refreshToken,
           };
         } catch (err) {
           console.log(err);
-
           return null;
         }
       },
-    }),
+    } as any),
   ],
+
   callbacks: {
     jwt: ({ token, user }) => {
       user && (token.user = user);
       return Promise.resolve(token);
     },
     session: async ({ session, token }) => {
-      /*@ts-ignore */
-      session = token.user;
+      session = token.user as Session;
       return Promise.resolve(session);
     },
   },
-  secret: 'foodage',
+  secret: process.env.NEXTAUTH_SECRET,
   jwt: {
-    secret: 'foodage',
+    secret: process.env.NEXTAUTH_SECRET,
   },
   session: {
     strategy: 'jwt',
