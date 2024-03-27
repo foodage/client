@@ -1,5 +1,7 @@
 'use client';
+
 import Script from 'next/script';
+
 export default function AuthScript() {
   const kakaoInit = () => {
     window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID);
@@ -37,22 +39,11 @@ export default function AuthScript() {
 
   return (
     <>
-      {/* <Script
-        src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"
-        defer
-        onLoad={naverInit}
-      ></Script> */}
       <Script src="/naver-login-sdk.js" async defer onLoad={naverInit}></Script>
       <Script
         src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
         onLoad={kakaoInit}
       ></Script>
-      {/* <Script
-        src="https://apis.google.com/js/api.js"
-        async
-        defer
-        onLoad={() => gapi.load('client', googleInit)}
-      ></Script> */}
       <Script src="https://accounts.google.com/gsi/client" async defer onLoad={googleInit}></Script>
     </>
   );
