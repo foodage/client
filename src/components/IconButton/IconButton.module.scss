@@ -1,0 +1,25 @@
+.button-wrap {
+  @include text-style('title', $gray-100);
+  @include flexbox(center, center);
+
+  width: 100%;
+  min-width: fit-content;
+  border-radius: $radius-button;
+  padding: 18px;
+  background-color: $gray-10;
+  cursor: pointer;
+
+  .contents {
+    @include flexbox(start, center);
+    min-width: 160px;
+    gap: 11px;
+  }
+
+  &.kakao {
+    background-color: #fbe84c;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
