@@ -1,8 +1,7 @@
 import NextAuth from 'next-auth';
 
+import { SignupResponse } from '.';
+
 declare module 'next-auth' {
-  interface Session {
-    id: number;
-    token: string;
-  }
+  interface Session extends SignupResponse {}
 }
