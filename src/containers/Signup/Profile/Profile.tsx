@@ -89,7 +89,7 @@ export const Profile = () => {
           ))}
         </div>
         <div className={cx('btn-wrap')}>
-          <Button styleType={'primary'} onClick={handleSubmit}>
+          <Button colorType={'primary'} onClick={handleSubmit}>
             가입하기
           </Button>
         </div>
