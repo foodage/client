@@ -1,10 +1,10 @@
-@import 'base/_fonts';
 @import 'base/_reset';
+@import 'base/_fonts';
 
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'Pretendard', 'Pretendard Variable', sans-serif;
+  font-family: Pretendard, 'Pretendard Variable', sans-serif;
 }
 
 #__next,
@@ -12,7 +12,8 @@ html,
 body {
   box-sizing: border-box;
   width: 100%;
-  font-family: 'Pretendard', 'Pretendard Variable', '-apple-system', 'BlinkMacSystemFont', system-ui,
+  height: 100%;
+  font-family: Pretendard, 'Pretendard Variable', '-apple-system', 'BlinkMacSystemFont', system-ui,
     'Roboto', 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Apple Color Emoji', sans-serif;
   font-weight: $regular;
   -webkit-text-size-adjust: none;
@@ -23,4 +24,5 @@ body {
 .container {
   margin: 0 auto;
   padding: 0 16px;
+  max-width: 468px;
 }
