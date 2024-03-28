@@ -11,7 +11,7 @@ import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 
 export const Login = () => {
-  const { kakaoLogin, naverLogin, googleLogin } = useLogin();
+  const { kakaoLogin, googleLogin, naverLogin } = useLogin();
 
   const naverRef = useRef<HTMLButtonElement>(null);
 
@@ -29,10 +29,10 @@ export const Login = () => {
           onClick={kakaoLogin}
         />
 
+        <button className={cx('hidden')} id={'naverIdLogin'} ref={naverRef} />
         <IconButton
           classNames={'icon-button'}
           iconUrl={'/assets/icon-naver.svg'}
-          ref={naverRef}
           text={'네이버로 시작하기'}
           onClick={() => naverLogin(naverRef)}
         />
