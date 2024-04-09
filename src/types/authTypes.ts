@@ -1,6 +1,7 @@
+type AuthType = 'kakao' | 'naver' | 'google';
 interface SignupCredentials {
   //회원가입 Request body
-  oauthServerType: 'kakao' | 'naver' | 'google';
+  oauthServerType: AuthType;
   accessToken: string;
   accountEmail: string;
   profileImage: string;
