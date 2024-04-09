@@ -19,7 +19,6 @@ export const authOptions: NextAuthOptions = {
         }
         try {
           const { data } = await authService.signup(credentials);
-
           if (!data) {
             return;
           }
