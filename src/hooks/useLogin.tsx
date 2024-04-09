@@ -2,6 +2,7 @@ export const useLogin = () => {
   const kakaoLogin = () => {
     window.Kakao.Auth.authorize({
       redirectUri: process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI,
+      scope: 'account_email',
     });
   };
 
