@@ -43,14 +43,19 @@ export default function AuthScript() {
 
   return (
     <>
-      <Script src="/naver-login-sdk.js" async defer onLoad={naverInit}></Script>
+      <Script crossOrigin="anonymous" src="/naver-login-sdk.js" async onLoad={naverInit}></Script>
       <Script
+        crossOrigin="anonymous"
         src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
         async
-        defer
         onLoad={kakaoInit}
       ></Script>
-      <Script src="https://accounts.google.com/gsi/client" async defer onLoad={googleInit}></Script>
+      <Script
+        crossOrigin="anonymous"
+        src="https://accounts.google.com/gsi/client"
+        async
+        onLoad={googleInit}
+      ></Script>
     </>
   );
 }
