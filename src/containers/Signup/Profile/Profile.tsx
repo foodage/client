@@ -50,28 +50,33 @@ export const Profile = () => {
 
   const handleSubmit = async () => {
     const accessToken = cookies['Oauth-Access-Token'];
+    const oauthServerType = cookies['Oauth-Server'];
     const serverToken = cookies['Oauth-Server-Token'];
 
-    if (!accessToken || !serverToken) {
+    if (!accessToken || !oauthServerType || !serverToken) {
       return;
     }
+
     const formData: SignupCredentials = {
-      oauthServerType: 'kakao',
+      oauthServerType,
       accessToken: accessToken,
       accountEmail: '',
       profileImage: '',
       nickname: nickname,
       character: character.character,
     };
+
     try {
       const res = await signIn('credentials', {
         ...formData,
         redirect: false,
       });
       if (res?.ok) {
+        console.log(res);
+        //논의 필요
+        //1. 회원가입이 완료되면 토큰, 리프레시토큰 쿠키에 저장?
         router.push('/');
-        //✅ Todo: 로그인 or 가입 후 쿠키에 저장할 값 정하기
-        //- 최근 로그인한 oauth 타입, nickname
+        //todo. 로컬 스토리지에 유저 정보 저장
       }
     } catch (err) {
       console.error(err);
