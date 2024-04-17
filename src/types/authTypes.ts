@@ -4,7 +4,6 @@ interface SignupCredentials {
   oauthServerType: AuthType;
   accessToken: string;
   accountEmail: string;
-  profileImage: string;
   nickname: string;
   character: string;
 }
@@ -51,4 +50,4 @@ interface UserInfo {
   ];
 }
 
-export type { JWTResponse, MemberInfo, SignupCredentials, SignupResponse, UserInfo };
+export type { AuthType, JWTResponse, MemberInfo, SignupCredentials, SignupResponse, UserInfo };
