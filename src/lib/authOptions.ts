@@ -6,11 +6,12 @@ import { SignupCredentials } from '@/types';
 
 export const authOptions: NextAuthOptions = {
   pages: {
-    signIn: '/signup',
+    newUser: '/signup',
   },
   providers: [
     CredentialsProvider({
-      name: 'Credentials',
+      id: 'signup',
+      name: 'signup',
       credentials: {},
 
       async authorize(credentials: SignupCredentials) {
@@ -29,7 +30,7 @@ export const authOptions: NextAuthOptions = {
             refreshToken: data.jwt.refreshToken,
           };
         } catch (err) {
-          console.log(err);
+          console.error(err);
           return null;
         }
       },

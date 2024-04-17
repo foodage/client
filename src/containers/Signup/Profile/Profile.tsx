@@ -61,22 +61,18 @@ export const Profile = () => {
       oauthServerType,
       accessToken: accessToken,
       accountEmail: '',
-      profileImage: '',
       nickname: nickname,
       character: character.character,
     };
 
     try {
-      const res = await signIn('credentials', {
+      const res = await signIn('signUp', {
         ...formData,
         redirect: false,
       });
       if (res?.ok) {
         console.log(res);
-        //논의 필요
-        //1. 회원가입이 완료되면 토큰, 리프레시토큰 쿠키에 저장?
         router.push('/');
-        //todo. 로컬 스토리지에 유저 정보 저장
       }
     } catch (err) {
       console.error(err);
