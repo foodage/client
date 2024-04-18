@@ -1,16 +1,18 @@
 .button {
-  @include flexbox(center, center);
-  @include text-style('body2', $gray-90);
-
-  gap: 11px;
-  width: 100%;
-  border-radius: 16px;
-  background: $gray-20;
-  padding: 18px;
-  cursor: pointer;
-}
-
-.primary {
   @include text-style('h3', $gray-10);
+
+  width: 100%;
+  border-radius: $radius-button;
+  padding: 18px;
   background-color: $primary-medium;
+  cursor: pointer;
+
+  &.gray-20 {
+    background-color: $gray-20;
+    color: $gray-70;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }

@@ -1,5 +1,7 @@
 /* ------- text style -------- */
 @mixin text-style($style, $color: $black) {
+  font-family: 'Pretendard', 'Pretendard Variable', sans-serif;
+
   @if ($style == 'h1') {
     @include text-style-h1;
   }
