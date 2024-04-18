@@ -1,33 +1,14 @@
 .login-container {
-  @include column-flexbox(center, stretch);
-  width: 100%;
-}
-
-.icon {
-  display: block;
-  cursor: pointer;
+  background-color: $gray-20;
+  margin: 0 auto;
+  padding: 16px;
+  height: 100%;
 }
 
 .btn-wrap {
   @include column-flexbox(center, center);
   gap: 12px;
   margin: 32px 0 16px;
-}
-
-.inquiry {
-  @include text-style('body2', $gray-70);
-  transition: color 0.3s ease-out;
-  text-decoration: underline;
-  margin-bottom: 10px;
-  cursor: pointer;
-
-  &:hover {
-    color: $gray-60;
-  }
-}
-
-#naverIdLogin {
-  @include hidden;
 }
 
 .hidden {

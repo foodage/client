@@ -8,19 +8,16 @@ const cx = classNames.bind(styles);
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   children: React.ReactNode;
-  styleType?: 'primary';
+  classNames?: string;
+  colorType?: 'primary' | 'gray-20';
 }
 
 export const Button = forwardRef<HTMLButtonElement, Props>(
-  ({ disabled, styleType = 'primary', children, type = 'button', ...rest }, ref) => {
+  ({ disabled, colorType = 'primary', classNames, children, type = 'button', ...rest }, ref) => {
+    const classes = cx('button', classNames, colorType);
+
     return (
-      <button
-        className={cx('button', styleType)}
-        disabled={disabled}
-        ref={ref}
-        type={type}
-        {...rest}
-      >
+      <button className={classes} disabled={disabled} ref={ref} type={type} {...rest}>
         {children}
       </button>
     );

@@ -2,14 +2,18 @@
 
 import { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
-import { ReactNode } from 'react';
+import { CookiesProvider } from 'react-cookie';
 
 export const Providers = ({
   children,
   session,
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
   session: Session | null;
 }) => {
-  return <SessionProvider session={session}>{children}</SessionProvider>;
+  return (
+    <SessionProvider session={session}>
+      <CookiesProvider defaultSetOptions={{ path: '/' }}>{children}</CookiesProvider>
+    </SessionProvider>
+  );
 };
