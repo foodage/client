@@ -1,16 +1,105 @@
+$logo-color: #36384f;
+$text-color: #969696;
+$icon-background: #2e323d;
+
 .login-container {
-  background-color: $gray-20;
+  @include column-flexbox(end, stretch);
+  max-width: 486px;
+  height: 100vh;
   margin: 0 auto;
-  padding: 16px;
-  height: 100%;
+  background-color: $gray-20;
+  position: relative;
+  z-index: -100;
+  overflow: hidden;
 }
 
-.btn-wrap {
+.background {
+  transform: translateY(10%);
+  width: 100%;
+  display: block;
+  z-index: -10;
+  animation: splash-bg 1s ease-in-out forwards;
+}
+
+.login-section {
+  @include column-flexbox(end, stretch);
+  padding-bottom: 65px;
+}
+
+.logo-wrap {
+  @include column-flexbox(center, center);
+  gap: 4px;
+  margin-bottom: 20px;
+
+  .logo {
+    font-family: $font-logo;
+    font-size: 34px;
+    font-weight: 400;
+    color: $logo-color;
+  }
+
+  .introduce {
+    @include text-style('title');
+    color: $logo-color;
+  }
+}
+
+.button-section {
+  animation: splash-login 1.4s ease-in-out forwards;
+}
+
+.auth-btn-wrap {
   @include column-flexbox(center, center);
   gap: 12px;
   margin: 32px 0 16px;
 }
 
+.inquiry-wrap {
+  @include flexbox(between, center);
+  width: 100%;
+
+  .left {
+    @include flexbox(start, center);
+    gap: 7px;
+    cursor: pointer;
+  }
+}
+
+.text-button {
+  @include text-style('body2');
+  color: $text-color;
+}
+
+.arrow-icon {
+  display: block;
+  background-color: $icon-background;
+  padding: 3px;
+  border-radius: $radius-4;
+}
+
+.version {
+  @include text-style('body2');
+  color: $text-color;
+}
+
 .hidden {
   @include hidden;
+}
+
+@keyframes splash-bg {
+  0% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
+
+@keyframes splash-login {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
