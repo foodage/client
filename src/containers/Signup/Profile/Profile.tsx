@@ -6,7 +6,7 @@ import { signIn } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
-import IconX from '/public/assets/icon-x.svg';
+import IconX from '/public/assets/icons/icon-x.svg';
 import { Button } from '@/components';
 import { SignupCredentials } from '@/types';
 
