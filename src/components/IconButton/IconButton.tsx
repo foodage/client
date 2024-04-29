@@ -4,7 +4,6 @@ import styles from './IconButton.module.scss';
 
 const cx = classNames.bind(styles);
 
-import Image from 'next/image';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
 
 import { Button } from '../Button';
@@ -12,19 +11,19 @@ import { Button } from '../Button';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconUrl: string;
   text: string;
-  colorType?: 'kakao' | 'white';
+  colorType?: 'yellow' | 'white' | 'primary';
   classNames?: string;
   iconSize?: number;
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, Props>(
-  ({ iconUrl, text, colorType, iconSize = 20, ...rest }, ref) => {
-    const classes = cx('button-wrap', colorType, classNames);
+  ({ iconUrl, classNames, text, colorType, iconSize = 20, ...rest }, ref) => {
+    const classes = cx('button-wrap', classNames, colorType);
 
     return (
       <Button ref={ref} {...rest} className={classes}>
         <div className={cx('contents')}>
-          <Image
+          <img
             alt={`${text}이미지`}
             className={cx('icon')}
             height={iconSize}

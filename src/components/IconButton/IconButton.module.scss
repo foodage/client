@@ -15,8 +15,13 @@
     gap: 11px;
   }
 
-  &.kakao {
-    background-color: #fbe84c;
+  &.yellow {
+    background-color: $kakao;
+  }
+
+  &.primary {
+    background-color: $primary-medium;
+    color: $gray-10;
   }
 
   &:disabled {

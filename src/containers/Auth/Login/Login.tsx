@@ -13,6 +13,12 @@ import styles from './Login.module.scss';
 
 const cx = classNames.bind(styles);
 
+const authImgPath = {
+  kakao: '/assets/icons/icon-kakao.svg',
+  naver: '/assets/icons/icon-naver.svg',
+  google: '/assets/icons/icon-google.svg',
+};
+
 export const Login = () => {
   const { kakaoLogin, googleLogin, naverLogin } = useLogin();
 
@@ -35,24 +41,21 @@ export const Login = () => {
       <div className={cx('button-section')}>
         <div className={cx('auth-btn-wrap')}>
           <IconButton
-            classNames={'icon-button'}
-            colorType={'kakao'}
-            iconUrl={'/assets/icons/icon-kakao.svg'}
+            colorType={'primary'}
+            iconUrl={authImgPath['kakao']}
             text={'카카오로 시작하기'}
             onClick={kakaoLogin}
           />
 
           <button className={cx('hidden')} id={'naverIdLogin'} ref={naverRef} />
           <IconButton
-            classNames={'icon-button'}
-            iconUrl={'/assets/icons/icon-naver.svg'}
+            iconUrl={authImgPath['naver']}
             text={'네이버로 시작하기'}
             onClick={() => naverLogin(naverRef)}
           />
 
           <IconButton
-            classNames={'icon-button'}
-            iconUrl={'/assets/icons/icon-google.svg'}
+            iconUrl={authImgPath['google']}
             text={'구글로 시작하기'}
             onClick={googleLogin}
           />
