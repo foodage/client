@@ -4,48 +4,49 @@ $icon-background: #2e323d;
 
 .login-container {
   @include column-flexbox(end, stretch);
-  max-width: 486px;
   height: 100vh;
   margin: 0 auto;
   background-color: $gray-20;
   position: relative;
-  z-index: -100;
   overflow: hidden;
 }
 
-.background {
-  transform: translateY(10%);
-  width: 100%;
-  display: block;
-  z-index: -10;
+.splash-wrap {
   animation: splash-bg 1s ease-in-out forwards;
-}
 
-.login-section {
-  @include column-flexbox(end, stretch);
-  padding-bottom: 65px;
-}
-
-.logo-wrap {
-  @include column-flexbox(center, center);
-  gap: 4px;
-  margin-bottom: 20px;
-
-  .logo {
-    font-family: $font-logo;
-    font-size: 34px;
-    font-weight: 400;
-    color: $logo-color;
+  .background {
+    transform: translateY(10%);
+    width: 100%;
+    display: block;
   }
 
-  .introduce {
-    @include text-style('title');
-    color: $logo-color;
+  .login-section {
+    @include column-flexbox(end, stretch);
+    position: relative;
+    z-index: 10;
+  }
+
+  .logo-wrap {
+    @include column-flexbox(center, center);
+    gap: 4px;
+
+    .logo {
+      font-family: $font-logo;
+      font-size: 34px;
+      font-weight: 400;
+      color: $logo-color;
+    }
+
+    .introduce {
+      @include text-style('title');
+      color: $logo-color;
+    }
   }
 }
 
 .button-section {
-  animation: splash-login 1.4s ease-in-out forwards;
+  animation: splash-login 1s ease-in-out forwards;
+  margin-bottom: 65px;
 }
 
 .auth-btn-wrap {
@@ -82,23 +83,20 @@ $icon-background: #2e323d;
   color: $text-color;
 }
 
-.hidden {
-  @include hidden;
-}
-
 @keyframes splash-bg {
   0% {
-    transform: translateY(50%);
+    transform: translateY(30%);
   }
   100% {
-    transform: translateY(10%);
+    transform: translateY(0%);
   }
 }
 
 @keyframes splash-login {
   0% {
-    transform: translateY(100%);
+    transform: translateY(120%);
   }
+
   100% {
     transform: translateY(0%);
   }
