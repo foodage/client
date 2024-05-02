@@ -1,0 +1,72 @@
+.navigation {
+  @include flexbox(center, center);
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  border: 0;
+  bottom: 20px;
+}
+
+.btn-plus {
+  @include flexbox(center, center);
+  z-index: 10;
+  position: relative;
+  width: 46px;
+  height: 46px;
+  background: $primary-medium;
+  border: 5px solid $gray-20;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateY(-40px);
+  // filter: drop-shadow(0 0px 8px rgb(0 93 93 / 24%));
+
+  &::before {
+    content: '';
+    position: absolute;
+    color: $gray-10;
+  }
+
+  i {
+    position: absolute;
+    inset: 0;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 19px;
+      background: transparent;
+      top: 31px;
+      box-shadow: 0px -11px $gray-20;
+    }
+
+    &::before {
+      left: -21px;
+      border-top-right-radius: 25px;
+    }
+
+    &::after {
+      right: -21px;
+      border-top-left-radius: 25px;
+    }
+  }
+}
+
+.menu {
+  @include flexbox(center, center);
+  position: absolute;
+  max-width: 392px;
+  width: 90%;
+  height: 64px;
+  background: $gray-10;
+  border-radius: 24px;
+
+  &:not(:nth-child(3)) {
+    li {
+      padding: 20px;
+      cursor: pointer;
+    }
+  }
+}
