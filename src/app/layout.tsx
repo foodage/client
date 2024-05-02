@@ -2,6 +2,7 @@ import '@/styles/globals.scss';
 
 import { getServerSession } from 'next-auth';
 
+import { GNBLayout } from '@/components';
 import { authOptions } from '@/lib';
 import { Providers } from '@/utils';
 
@@ -14,7 +15,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="ko">
       <Head />
       <Providers session={session}>
-        <body>{children}</body>
+        <body>
+          <GNBLayout>{children}</GNBLayout>
+        </body>
       </Providers>
     </html>
   );
