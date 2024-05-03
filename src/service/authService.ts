@@ -1,6 +1,6 @@
 import { AxiosPromise } from 'axios';
 
-import { axiosServer } from '@/lib';
+import { axiosClient } from '@/lib';
 import { SignupCredentials } from '@/types';
 
 interface AuthService {
@@ -16,7 +16,7 @@ interface AuthService {
 
 const authService: AuthService = {
   signup: (data: SignupCredentials) => {
-    return axiosServer.post('member/join', data);
+    return axiosClient.post('member/join', data);
   },
 };
 

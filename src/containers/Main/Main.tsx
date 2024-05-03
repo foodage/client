@@ -1,6 +1,11 @@
 'use client';
 
+import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
+
+import styles from './Main.module.scss';
+
+const cx = classNames.bind(styles);
 
 export const Main = () => {
   const [timeText, setTimeText] = useState('');
@@ -25,5 +30,26 @@ export const Main = () => {
     }
   }, []);
 
-  return <div>오늘 {timeText} 뭐예요?</div>;
+  return (
+    <div className={cx('container')}>
+      <section>
+        <h2>00님 오늘 {timeText}은 뭐예요?</h2>
+        <div>calender</div>
+      </section>
+      <div className={cx('background')}>
+        <section>
+          <h2>최근에 작성했어요</h2>
+        </section>
+        <section>
+          <h2>지금 00동에 계신가요?</h2>
+        </section>
+        <section>
+          <h2>가장 많이 사용한 태그</h2>
+        </section>
+        <section>
+          <h2>오늘의 미션</h2>
+        </section>
+      </div>
+    </div>
+  );
 };

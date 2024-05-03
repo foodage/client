@@ -6,22 +6,23 @@ import { SignupCredentials } from '@/types';
 
 export const authOptions: NextAuthOptions = {
   pages: {
-    newUser: '/signup',
+    signIn: '/signup',
   },
   providers: [
     CredentialsProvider({
-      id: 'signup',
-      name: 'signup',
+      name: 'sign up',
       credentials: {},
 
       async authorize(credentials: SignupCredentials) {
         if (!credentials) {
-          return;
+          return null;
         }
+        console.log('credential', credentials);
         try {
           const { data } = await authService.signup(credentials);
+          console.log('data', data);
           if (!data) {
-            return;
+            return null;
           }
 
           return {
@@ -38,7 +39,7 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-    jwt: ({ token, user }) => {
+    jwt: async ({ token, user }) => {
       user && (token.user = user);
       return Promise.resolve(token);
     },

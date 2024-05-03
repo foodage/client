@@ -19,10 +19,16 @@ body {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
+  background-color: $gray-20;
 }
 
 .container {
   margin: 0 auto;
   padding: 0 16px;
-  max-width: 468px;
+  max-width: 464px;
+  min-width: 300px;
+}
+
+.hidden {
+  @include hidden;
 }

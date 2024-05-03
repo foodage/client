@@ -1,0 +1,89 @@
+.navigation {
+  width: 100%;
+  height: auto;
+}
+
+.menu {
+  @include flexbox(around, center);
+  position: absolute;
+  margin: 0 auto;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  max-width: 464px;
+  transition: transform 0.3s ease;
+
+  @include responsive('480px') {
+    transform: scale(0.86);
+    justify-content: center;
+  }
+
+  @include responsive('370px') {
+    transform: scale(0.76);
+    justify-content: center;
+  }
+
+  .tab-button {
+    background: transparent;
+    padding: 20px;
+    cursor: pointer;
+
+    &.search {
+      margin-right: 0;
+      border-top-right-radius: 30px;
+    }
+
+    &.feed {
+      margin-left: 0;
+      border-top-left-radius: 30px;
+    }
+
+    &.plus {
+      @include column-flexbox(center, center);
+      cursor: auto;
+      padding: 0;
+
+      .subtrack {
+        display: block;
+        margin-bottom: 28px;
+      }
+    }
+  }
+
+  .btn-plus {
+    @include flexbox(center, center);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    background: $primary-medium;
+    border-radius: 50%;
+    margin-bottom: -20px;
+
+    cursor: pointer;
+    filter: drop-shadow(0 0px 8px rgb(0 93 93 / 24%));
+  }
+}
+
+.left {
+  @include flexbox(around, center);
+  border-radius: 24px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: $gray-10;
+  width: 100%;
+  height: 80px;
+  border: 1px solid $gray-30;
+  border-right: none;
+}
+
+.right {
+  @include flexbox(around, center);
+  border-radius: 24px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: $gray-10;
+  width: 100%;
+  height: 80px;
+  border: 1px solid $gray-30;
+  border-left: none;
+}
