@@ -8,6 +8,7 @@ import { useCookies } from 'react-cookie';
 
 import IconX from '/public/assets/icons/icon-x.svg';
 import { Button } from '@/components';
+import { authService } from '@/service';
 import { SignupCredentials } from '@/types';
 
 import { characters } from './content';
@@ -50,30 +51,46 @@ export const Profile = () => {
 
   const handleSubmit = async () => {
     const accessToken = cookies['Oauth-Access-Token'];
-    const oauthServerType = cookies['Oauth-Server'];
-    const serverToken = cookies['Oauth-Server-Token'];
+    const oauthServerType = cookies['Oauth-Server-Type'];
 
-    if (!accessToken || !oauthServerType || !serverToken) {
+    if (!accessToken || !oauthServerType) {
+      alert('소셜 로그인을 다시 시도해 주세요.');
+      router.push('/login');
       return;
     }
 
     const formData: SignupCredentials = {
       oauthServerType,
-      accessToken: accessToken,
-      accountEmail: '',
+      accessToken,
+      accountEmail: '', //accoutEmail 받아와야함
       nickname: nickname,
       character: character.character,
     };
 
+    console.log(formData);
     try {
-      const res = await signIn('signUp', {
-        ...formData,
-        redirect: false,
-      });
-      if (res?.ok) {
-        console.log(res);
-        router.push('/');
-      }
+      const { data } = await authService.signup(formData);
+      console.log(data);
+      //테스트를 위해 next auth 주석처리
+      // if (!data) {
+      //   return null;
+      // }
+      // return {
+      //   memberInfoDto: data.memberInfoDto,
+      //   token: data.jwt.accessToken,
+      //   refreshToken: data.jwt.refreshToken,
+      // };
+      // const res = await signIn('credentials', {
+      //   ...formData,
+      //   redirect: false,
+      // });
+      // console.log(res);
+      // if (res?.ok) {
+      //   console.log(res);
+      //   router.push('/');
+      // } else {
+      //   alert('문제가 발생했습니다. 다시 시도해 주세요.');
+      // }
     } catch (err) {
       console.error(err);
     }
