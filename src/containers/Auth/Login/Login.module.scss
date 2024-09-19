@@ -1,17 +1,47 @@
 .login-container {
-  @include column-flexbox(center, stretch);
-  width: 100%;
+  @include column-flexbox(space-between, stretch);
+
+  max-width: $sm-breakpoint;
+  padding: 1rem 1rem;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: $background;
+  margin: 0 auto;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
 }
 
-.icon {
-  display: block;
-  cursor: pointer;
+.fade-in {
+  opacity: 1;
+}
+
+.login-animation {
+  //border: 1px solid blue;
+  display: flex;
+  flex: 1;
+}
+
+.login-content {
+  padding: 2rem;
+  //border: 1px solid red;
 }
 
 .btn-wrap {
   @include column-flexbox(center, center);
   gap: 12px;
   margin: 32px 0 16px;
+  .btn-content {
+    width: 166px;
+    display: flex;
+    gap: 14px;
+  }
+}
+
+.icon {
+  width: 1.5rem;
+  display: inline;
+  cursor: pointer;
+  vertical-align: middle;
 }
 
 .inquiry {
