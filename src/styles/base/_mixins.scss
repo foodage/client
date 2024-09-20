@@ -46,8 +46,8 @@ $flex-map: (
 
 @mixin flexbox($jc: start, $ai: start) {
   display: flex;
-  align-items: flex-value($ai);
-  justify-content: flex-value($jc);
+  justify-content: $jc;
+  align-items: $ai;
 }
 
 @mixin inline-flexbox($jc: start, $ai: start) {
