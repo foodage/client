@@ -1,19 +1,22 @@
 'use client';
-import axios from 'axios';
 import classNames from 'classnames/bind';
-import Lottie from 'lottie-react';
-import { signIn, signOut } from 'next-auth/react';
+import Lottie, { LottieRefCurrentProps } from 'lottie-react';
+import { signIn } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
 
 import { Button } from '@/components';
 import useLogin from '@/hooks/useLogin';
 
 import LoginAnimation from '../../../../public/assets/animation/login.json';
+import InquiryIcon from '../../../../public/assets/icon-inquiry.svg';
 import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 
 export const Login = () => {
   const { kakaoLogin, naverLogin, googleLogin } = useLogin();
+
+  const animationRef = useRef<LottieRefCurrentProps>(null);
+  animationRef.current?.setSpeed(1.3);
 
   const naverRef = useRef<HTMLButtonElement>(null);
 
@@ -31,7 +34,7 @@ export const Login = () => {
       <section className={cx('login-container', { 'fade-in': isVisible })}>
         <h2 className={cx('hidden')}>소셜 로그인</h2>
         <div className={cx('login-animation')}>
-          <Lottie animationData={LoginAnimation} loop={false} />
+          <Lottie animationData={LoginAnimation} loop={false} lottieRef={animationRef} />
         </div>
         <div className={cx('login-content')}>
           <div className={cx('btn-wrap')}>
@@ -56,9 +59,13 @@ export const Login = () => {
               </div>
             </Button>
           </div>
-          <button className={cx('inquiry')} type="button">
-            문의하기
-          </button>
+          <footer className={cx('login-footer')}>
+            <div className={cx('inquiry')}>
+              <span>문의하기</span>
+              <InquiryIcon className={cx('inquiry-icon')} />
+            </div>
+            <span>0.0</span>
+          </footer>
         </div>
       </section>
     </main>

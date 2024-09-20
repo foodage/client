@@ -1,12 +1,10 @@
 .login-container {
   @include column-flexbox(space-between, stretch);
-
   max-width: $sm-breakpoint;
-  padding: 1rem 1rem;
-  box-sizing: border-box;
   height: 100vh;
-  background-color: $background;
   margin: 0 auto;
+  box-sizing: border-box;
+  background-color: $background;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
 }
@@ -16,20 +14,32 @@
 }
 
 .login-animation {
-  //border: 1px solid blue;
-  display: flex;
-  flex: 1;
+  @include flexbox(center, normal);
+  overflow: hidden;
+  flex: 2.5;
+  div {
+    padding-top: 2rem;
+    transform: scale(2.3);
+    overflow: hidden;
+    @include mobile-only() {
+      transform: scale(3);
+    }
+    svg {
+      z-index: 100;
+    }
+  }
 }
 
 .login-content {
-  padding: 2rem;
-  //border: 1px solid red;
+  @include column-flexbox(normal, normal);
+  padding: 38px 18px;
+  padding-top: 0;
+  flex: 1;
 }
 
 .btn-wrap {
   @include column-flexbox(center, center);
   gap: 12px;
-  margin: 32px 0 16px;
   .btn-content {
     width: 166px;
     display: flex;
@@ -44,15 +54,21 @@
   vertical-align: middle;
 }
 
-.inquiry {
+.login-footer {
+  @include flexbox(space-between, center);
   @include text-style('body2', $gray-70);
-  transition: color 0.3s ease-out;
-  text-decoration: underline;
-  margin-bottom: 10px;
-  cursor: pointer;
+  padding: 0 16px;
+  margin-top: 10px;
+  .inquiry {
+    @include flexbox(start, center);
+    gap: 7px;
+    transition: color 0.3s ease-out;
+    //margin-bottom: 10px;
+    cursor: pointer;
 
-  &:hover {
-    color: $gray-60;
+    &:hover {
+      color: $gray-60;
+    }
   }
 }
 
