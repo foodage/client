@@ -20,6 +20,12 @@ body {
   -ms-text-size-adjust: none;
 }
 
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
 .container {
   margin: 0 auto;
   //padding: 0 16px;
