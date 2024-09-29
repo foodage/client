@@ -64,7 +64,7 @@ export const Login = () => {
               <span>문의하기</span>
               <InquiryIcon className={cx('inquiry-icon')} />
             </div>
-            <span>0.0</span>
+            <span>{process.env.NEXT_PUBLIC_APP_VERSION}</span>
           </footer>
         </div>
       </section>

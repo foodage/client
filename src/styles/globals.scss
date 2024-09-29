@@ -18,6 +18,13 @@ body {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
+  .env_var {
+    font-size: 14px;
+    color: $gray-70;
+    position: fixed;
+    bottom: 0;
+    right: 3px;
+  }
 }
 
 input,
