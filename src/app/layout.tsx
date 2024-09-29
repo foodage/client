@@ -21,7 +21,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <AuthScript />
       </head>
       <Providers session={session}>
-        <body>{children}</body>
+        <body>
+          {children}
+          {process.env.NODE_ENV !== 'production' && (
+            <span className="env_var">{process.env.NODE_ENV}</span>
+          )}
+        </body>
       </Providers>
     </html>
   );
