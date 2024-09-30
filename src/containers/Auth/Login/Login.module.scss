@@ -22,7 +22,7 @@
     transform: scale(2.3);
     overflow: hidden;
     @include mobile-only() {
-      transform: scale(3);
+      transform: scale(2.5);
     }
     svg {
       z-index: 100;
