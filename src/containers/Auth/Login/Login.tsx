@@ -1,9 +1,9 @@
 'use client';
 import classNames from 'classnames/bind';
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
-import { signIn } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
 
+import AuthScript from '@/app/scripts';
 import { Button } from '@/components';
 import useLogin from '@/hooks/useLogin';
 
@@ -31,6 +31,7 @@ export const Login = () => {
 
   return (
     <main className={cx('container')}>
+      <AuthScript />
       <section className={cx('login-container', { 'fade-in': isVisible })}>
         <h2 className={cx('hidden')}>소셜 로그인</h2>
         <div className={cx('login-animation')}>
