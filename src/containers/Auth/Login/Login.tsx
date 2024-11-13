@@ -20,9 +20,6 @@ export const Login = () => {
 
   const naverRef = useRef<HTMLButtonElement>(null);
 
-  const handleLogin = (type: 'kakao' | 'naver' | 'google') => {
-    signIn(type);
-  };
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -30,9 +27,9 @@ export const Login = () => {
   }, []);
 
   return (
-    <main className={cx('container')}>
+    <>
       <AuthScript />
-      <section className={cx('login-container', { 'fade-in': isVisible })}>
+      <div className={cx('mobile-screen-only', 'login-container', { 'fade-in': isVisible })}>
         <h2 className={cx('hidden')}>소셜 로그인</h2>
         <div className={cx('login-animation')}>
           <Lottie animationData={LoginAnimation} loop={false} lottieRef={animationRef} />
@@ -68,7 +65,7 @@ export const Login = () => {
             <span>{process.env.NEXT_PUBLIC_APP_VERSION}</span>
           </footer>
         </div>
-      </section>
-    </main>
+      </div>
+    </>
   );
 };

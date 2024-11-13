@@ -1,9 +1,4 @@
 .login-container {
-  @include column-flexbox(space-between, stretch);
-  max-width: $sm-breakpoint;
-  height: 100vh;
-  margin: 0 auto;
-  box-sizing: border-box;
   background-color: $background;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;

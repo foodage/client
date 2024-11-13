@@ -16,7 +16,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>{/* <AuthScript /> */}</head>
       <Providers session={null}>
         <body>
-          {children}
+          <main className="container">{children}</main>
           {process.env.NODE_ENV !== 'production' && (
             <span className="env_var">{process.env.NODE_ENV}</span>
           )}
