@@ -1,0 +1,47 @@
+.card-container {
+  @include column-flexbox(center, center);
+  width: 134px;
+  height: 174px;
+  padding: 20px 0 12px 0;
+  gap: 6px;
+  border-radius: $radius-16;
+  background-color: white;
+  cursor: pointer;
+}
+
+.card-text {
+  @include column-flexbox(center, center);
+  gap: 4px;
+  p {
+    line-height: 1;
+    max-width: 94px;
+    @include text-shorten;
+  }
+
+  .title {
+    font-size: $font-size-14;
+    font-weight: $semiBold;
+  }
+  .subtext {
+    font-size: $font-size-12;
+    color: $gray-60;
+  }
+}
+.img-round {
+  width: 82px;
+  height: 82px;
+  border-radius: $radius-round;
+  object-fit: cover;
+}
+
+.card-rate {
+  @include flexbox(center, center);
+  gap: 2px;
+  margin-top: auto;
+}
+
+.rate-number {
+  line-height: 1;
+  color: $gray-80;
+  font-size: $font-size-12;
+}
