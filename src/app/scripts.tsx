@@ -44,7 +44,7 @@ export default function AuthScript() {
       ></Script> */}
       <Script src="/naver-login-sdk.js" async defer onLoad={naverInit}></Script>
       <Script
-        src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
+        src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
         onLoad={kakaoInit}
       ></Script>
       {/* <Script

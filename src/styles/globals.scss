@@ -1,5 +1,6 @@
 @import 'base/_fonts';
 @import 'base/_reset';
+@import 'base/_mixins';
 
 *::before,
 *::after {
@@ -18,9 +19,30 @@ body {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
+  .env_var {
+    font-size: 14px;
+    color: $gray-70;
+    position: fixed;
+    bottom: 0;
+    right: 3px;
+  }
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
 }
 
 .container {
   margin: 0 auto;
-  padding: 0 16px;
+  //padding: 0 16px;
+}
+
+.mobile-screen-only {
+  @include column-flexbox(space-between, stretch);
+  max-width: $sm-breakpoint;
+  height: 100vh;
+  margin: 0 auto;
+  box-sizing: border-box;
 }

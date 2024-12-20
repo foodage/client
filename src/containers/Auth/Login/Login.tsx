@@ -1,56 +1,71 @@
 'use client';
-import axios from 'axios';
 import classNames from 'classnames/bind';
-import { signIn, signOut } from 'next-auth/react';
-import { useRef } from 'react';
+import Lottie, { LottieRefCurrentProps } from 'lottie-react';
+import { useEffect, useRef, useState } from 'react';
 
+import AuthScript from '@/app/scripts';
 import { Button } from '@/components';
 import useLogin from '@/hooks/useLogin';
 
+import LoginAnimation from '../../../../public/assets/animation/login.json';
+import InquiryIcon from '../../../../public/assets/icon-inquiry.svg';
 import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 
 export const Login = () => {
   const { kakaoLogin, naverLogin, googleLogin } = useLogin();
 
+  const animationRef = useRef<LottieRefCurrentProps>(null);
+  animationRef.current?.setSpeed(1.3);
+
   const naverRef = useRef<HTMLButtonElement>(null);
 
-  const handleLogin = (type: 'kakao' | 'naver' | 'google') => {
-    signIn(type);
-  };
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   return (
-    <main className={cx('container')}>
-      <section className={cx('login-container')}>
+    <>
+      <AuthScript />
+      <div className={cx('mobile-screen-only', 'login-container', { 'fade-in': isVisible })}>
         <h2 className={cx('hidden')}>소셜 로그인</h2>
-        <div className={cx('image')}></div>
-        <div>
-          <h1>FOODAGE</h1>
-          <h2>매일 기록하는 음식 다이어리</h2>
+        <div className={cx('login-animation')}>
+          <Lottie animationData={LoginAnimation} loop={false} lottieRef={animationRef} />
         </div>
-        <div className={cx('btn-wrap')}>
-          <Button style={{ backgroundColor: '#fbe84c' }} onClick={kakaoLogin}>
-            <img alt="카카오로 시작하기" src="/assets/icon-kakao.svg" />
-            <span>카카오로 시작하기</span>
-          </Button>
-          <div className={cx('hidden')} id="naverIdLogin"></div>
-          <Button ref={naverRef} onClick={() => naverLogin(naverRef)}>
-            <img alt="네이버로 시작하기" src="/assets/icon-naver.svg" />
-            <span>네이버로 시작하기</span>
-          </Button>
+        <div className={cx('login-content')}>
+          <div className={cx('btn-wrap')}>
+            <Button style={{ backgroundColor: '#fbe84c' }} styleType="simple" onClick={kakaoLogin}>
+              <div className={cx('btn-content')}>
+                <img alt="카카오로 시작하기" className={cx('icon')} src="/assets/icon-kakao.svg" />
+                <span>카카오로 시작하기</span>
+              </div>
+            </Button>
+            <div className={cx('hidden')} id="naverIdLogin"></div>
+            <Button ref={naverRef} styleType="simple" onClick={() => naverLogin(naverRef)}>
+              <div className={cx('btn-content')}>
+                <img alt="네이버로 시작하기" className={cx('icon')} src="/assets/icon-naver.svg" />
+                <span>네이버로 시작하기</span>
+              </div>
+            </Button>
 
-          <Button onClick={googleLogin}>
-            <img alt="구글로 시작하기" src="/assets/icon-google.svg" />
-            <span>구글로 시작하기</span>
-          </Button>
+            <Button styleType="simple" onClick={googleLogin}>
+              <div className={cx('btn-content')}>
+                <img alt="구글로 시작하기" className={cx('icon')} src="/assets/icon-google.svg" />
+                <span>구글로 시작하기</span>
+              </div>
+            </Button>
+          </div>
+          <footer className={cx('login-footer')}>
+            <div className={cx('inquiry')}>
+              <span>문의하기</span>
+              <InquiryIcon className={cx('inquiry-icon')} />
+            </div>
+            <span>{process.env.NEXT_PUBLIC_APP_VERSION}</span>
+          </footer>
         </div>
-        <button className={cx('inquiry')} type="button">
-          문의하기
-        </button>
-        <button className={cx('inquiry')} type="button" onClick={() => signOut()}>
-          로그아웃
-        </button>
-      </section>
-    </main>
+      </div>
+    </>
   );
 };

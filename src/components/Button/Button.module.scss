@@ -8,9 +8,30 @@
   background: $gray-20;
   padding: 18px;
   cursor: pointer;
+  transition: 0.3s ease;
+  @include mobile-only() {
+    padding: 14px;
+  }
+
+  &:disabled {
+    background-color: $disabled;
+  }
 }
 
 .primary {
   @include text-style('h3', $gray-10);
-  background-color: $primary-medium;
+  background-color: $primary;
+  &:hover {
+    background-color: $primary-medium;
+  }
+}
+
+.simple {
+  background-color: $gray-10;
+  color: $gray-100;
+  font-size: $font-size-16;
+
+  @include mobile-only() {
+    //font-size: $font-size-12;
+  }
 }

@@ -49,52 +49,75 @@ export const Profile = () => {
   };
 
   return (
-    <main className={cx('profile-wrap', 'container')}>
-      <div className={cx('header-section')}>
-        <h1 className={cx('title')}>프로필 만들기</h1>
-        <div className={cx('profile-image')}>
-          <img alt="프로필 이미지" className={cx('profile')} src={character.image} />
-        </div>
-
-        <div className={cx('nickname-wrap')}>
-          <div className={cx('input-wrap')}>
-            <input
-              className={cx('input')}
-              maxLength={10}
-              ref={nicknameRef}
-              type="text"
-              value={nickname}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNickname(e.target.value)}
-            />
-            <div className={cx('icon-wrap')} onClick={handleDeleteNickname}>
-              <IconX />
+    <div className={cx('mobile-screen-only')}>
+      <div className={cx('profile-container')}>
+        <section className={cx('profile-section', 'profile-input')}>
+          <h1 className={cx('title')}>프로필 만들기</h1>
+          <div className={cx('profile-image')}>
+            <img alt="프로필 이미지" className={cx('selected-img')} src={character.image} />
+          </div>
+          <div className={cx('nickname-wrapper')}>
+            <div className={cx('input-wrapper')}>
+              <input
+                className={cx('nickname-input')}
+                maxLength={10}
+                placeholder={'불타는짬뽕01'}
+                type="text"
+              />
+              <div className={cx('del-icon')} onClick={handleDeleteNickname}>
+                <IconX />
+              </div>
             </div>
+            <p className={cx('profile-desc')}>{info}</p>
           </div>
-          <div className={cx('desc-wrap')}>
-            <p className={cx('desc')} dangerouslySetInnerHTML={{ __html: info }}></p>
-          </div>
-        </div>
+        </section>
+        <section className={cx('profile-section', 'profile-character')}>section2</section>
       </div>
+      {/*<div className={cx('header-section')}>*/}
+      {/*  <h1 className={cx('title')}>프로필 만들기</h1>*/}
+      {/*  <div className={cx('profile-image')}>*/}
+      {/*    <img alt="프로필 이미지" className={cx('profile')} src={character.image} />*/}
+      {/*  </div>*/}
 
-      <section className={cx('bottom-section')}>
-        <h2 className={cx('title')}>프로필 캐릭터</h2>
-        <div className={cx('characters')}>
-          {characters.map((profile, index) => (
-            <ProfileImage
-              key={index}
-              name={profile.value}
-              url={profile.image}
-              onClick={handleImage}
-            />
-          ))}
-        </div>
-        <div className={cx('btn-wrap')}>
-          <Button styleType={'primary'} onClick={handleSubmit}>
-            가입하기
-          </Button>
-        </div>
-      </section>
-    </main>
+      {/*  <div className={cx('nickname-wrap')}>*/}
+      {/*    <div className={cx('input-wrap')}>*/}
+      {/*      <input*/}
+      {/*        className={cx('input')}*/}
+      {/*        maxLength={10}*/}
+      {/*        ref={nicknameRef}*/}
+      {/*        type="text"*/}
+      {/*        value={nickname}*/}
+      {/*        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNickname(e.target.value)}*/}
+      {/*      />*/}
+      {/*      <div className={cx('icon-wrap')} onClick={handleDeleteNickname}>*/}
+      {/*        <IconX />*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*    <div className={cx('desc-wrap')}>*/}
+      {/*      <p className={cx('desc')} dangerouslySetInnerHTML={{ __html: info }}></p>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
+
+      {/*<section className={cx('bottom-section')}>*/}
+      {/*  <h2 className={cx('title')}>프로필 캐릭터</h2>*/}
+      {/*  <div className={cx('characters')}>*/}
+      {/*    {characters.map((profile, index) => (*/}
+      {/*      <ProfileImage*/}
+      {/*        key={index}*/}
+      {/*        name={profile.value}*/}
+      {/*        url={profile.image}*/}
+      {/*        onClick={handleImage}*/}
+      {/*      />*/}
+      {/*    ))}*/}
+      {/*  </div>*/}
+      {/*  <div className={cx('btn-wrap')}>*/}
+      {/*    <Button styleType={'primary'} onClick={handleSubmit}>*/}
+      {/*      가입하기*/}
+      {/*    </Button>*/}
+      {/*  </div>*/}
+      {/*</section>*/}
+    </div>
   );
 };
 
