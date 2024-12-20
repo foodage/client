@@ -1,6 +1,7 @@
 import '@/styles/globals.scss';
 
 import type { Metadata } from 'next';
+import { getServerSession } from 'next-auth';
 
 import { Providers } from '@/utils';
 
